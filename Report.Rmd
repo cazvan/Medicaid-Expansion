@@ -22,12 +22,6 @@ The health and economic effects of Medicaid expansion under the Affordable Care 
 
 This report will analyze the effect of Medicaid expansion under the Affordable Care Act on mental health outcomes for adult individuals in the United States. The Affordable Care Act, passed in 2010, changed the eligibility requirements for Medicaid, expanding coverage in states that elected to not reject expansion. As of October 2018, Idaho, Nebraska, Utah, Alabama, Florida, Georgia, Kansas, Mississippi, Missouri, North Carolina, Oklahoma, South Carolina, South Dakota, Tennessee, Texas, Wisconsin, and Wyoming have not expanded Medicaid: all other states have expanded coverage.^[Kaiser Family Foundation. Status of State Action on the Medicaid Expansion Decision. November 26, 2018. https://www.kff.org/health-reform/state-indicator/state-activity-around-expanding-medicaid-under-the-affordable-care-act/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D] This report will use a the assumption of parallel trends in difference-in-difference quasi-experimental model to compare the mental health variables in states that expanded Medicaid coverage under the ACA against those that did not.
 
-## Including Plots
+## Goals of the Affordable Care Act
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+The Affordable Care Act (ACA) law has three primary goals: make affordable health insurance available to more people, expand the Medicaid program, and support innovative medical care delivery methods designed to lower cost.4 Research has demonstrated progress towards these goals: Medicaid expansion states have had significant coverage gains, increased access to and affordability of care, increased financial security among low-income populations, and improved self-reported health outcomes.5 Less research, however, seems to have been conducted to
