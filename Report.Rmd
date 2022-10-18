@@ -14,6 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![](https://raw.githubusercontent.com/cazvan/Medicaid-Expansion/main/90.webp){#id .class width=70% height=70%}^[Kaiser Family Foundation. State Medicaid Expansion Map. April 10, 2017. http://www.governing.com/gov-data/health/state-medicaid-expansion-adoption-status-map.html]
 
+```{r Figure 1: State Medicaid Expansion Map. April 10, 2017.}
+
+```
+
 ## Executive Summary
 
 The health and economic effects of Medicaid expansion under the Affordable Care Act has been studied from various approaches. This report seeks to add to the body of analysis by discussing the effect of expansion on the mental health of people in states where coverage was expanded. A modest positive effect was revealed.
@@ -22,6 +26,55 @@ The health and economic effects of Medicaid expansion under the Affordable Care 
 
 This report will analyze the effect of Medicaid expansion under the Affordable Care Act on mental health outcomes for adult individuals in the United States. The Affordable Care Act, passed in 2010, changed the eligibility requirements for Medicaid, expanding coverage in states that elected to not reject expansion. As of October 2018, Idaho, Nebraska, Utah, Alabama, Florida, Georgia, Kansas, Mississippi, Missouri, North Carolina, Oklahoma, South Carolina, South Dakota, Tennessee, Texas, Wisconsin, and Wyoming have not expanded Medicaid: all other states have expanded coverage.^[Kaiser Family Foundation. Status of State Action on the Medicaid Expansion Decision. November 26, 2018. https://www.kff.org/health-reform/state-indicator/state-activity-around-expanding-medicaid-under-the-affordable-care-act/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D] This report will use a the assumption of parallel trends in difference-in-difference quasi-experimental model to compare the mental health variables in states that expanded Medicaid coverage under the ACA against those that did not.
 
+```{r Figure 2: State Medicaid Expansion Decisions, November 2018}
+
+```
+
+
 ## Goals of the Affordable Care Act
 
-The Affordable Care Act (ACA) law has three primary goals: make affordable health insurance available to more people, expand the Medicaid program, and support innovative medical care delivery methods designed to lower cost.4 Research has demonstrated progress towards these goals: Medicaid expansion states have had significant coverage gains, increased access to and affordability of care, increased financial security among low-income populations, and improved self-reported health outcomes.5 Less research, however, seems to have been conducted to
+The Affordable Care Act (ACA) law has three primary goals: make affordable health insurance available to more people, expand the Medicaid program, and support innovative medical care delivery methods designed to lower cost.4 Research has demonstrated progress towards these goals: Medicaid expansion states have had significant coverage gains, increased access to and affordability of care, increased financial security among low-income populations, and improved self-reported health outcomes.5 Less research, however, seems to have been conducted to determine mental health outcomes following the expansion of coverage. Based on evidence from four expansion states in 2014 (Iowa, New York, Washington, and West Virginia), between 20% and 34% of new Medicaid enrollees utilized behavioral health treatment services of drugs.6 This report attempts to determined a more nuanced analysis of mental health outcomes rather than treatments related to expansion.
+
+## The Ideal Mental Health Experiment
+
+An ideal experiment conducted to determine the effects of Medicaid expansion on mental health would be complex and expansive. This analysis controls for sex, education level, and income bracket, as well as state of residence and year fixed effects. Further variable resolution, such as disaggregated mental health variables and continuous income variables, would add strength and clarity to the analysis.
+
+Disaggregated mental health variables, such as those found in the IPUMS Health Surveys, would allow for a more nuanced picture of the exact nature of different effects. Categories of mental health, such as anxiety; depression; stress; and social and emotional support may clarify which types of mental health Medicaid coverage affects. Further category breakdowns, such as worry about medical costs, standards of living, paying rent/mortgage, children’s college, panic attacks, eating disorders, depression caused by the death of a loved one, intensity of depressive feelings, and treatments for any mental health symptoms would add useful and potentially actionable detail to the results.
+
+Additionally, controlling for income as a potential confounding variable would improve the strength of the analysis. Income may have an effect on mental health, and preliminary research demonstrates that a large share of new Medicaid enrollees are in a low-income bracket.7 Income in the BRFSS dataset is coded categorically, in levels of less than $10,000, $10,000 to less than $15,000, $15,000 to less than $20,000, $20,000 to less than $25,000, $25,000 to less than $35,000, $35,000 to less than $50,000, $50,000 to less than $75,000, and $75,000 or more. A continuously coded income variable would allow for analyzing specific Medicaid eligibility cut-offs, poverty rates, and inflation adjustments.
+
+## Data Source and Key Variable Measurement
+
+The report will utilize Behavioral Risk Factor Surveillance System survey data from 2000 until 2017, the date of the most recent survey. Given that the ACA was passed in 2010, this allows for ten years of trend data before the Act, and seven years of data after the Act was passed. One specific variable pertaining to mental health symptoms (‘menthlth’, renamed ‘mental’ for this analysis) will be compared against Medicaid coverage before and after the implementation of the ACA. Menthlth data is surveyed as follows: “Now thinking about your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good?” The variable is coded by ‘number of days’, ‘none’, ‘don’t know/not sure’, ‘refused’, or missing. ‘Don’t know/not sure’, ‘refused’, or missing results were dropped before conducting the analysis.
+
+This report recognizes that quantifying mental health might be difficult, and there may exist a spectrum of diagnosed and undiagnosed conditions. For example, individuals may have differing thresholds for what constitutes a ‘not good mental health day;’ answers may be disingenuous due to societal pressure and stigma; and feelings of depression, stress, or problems with emotions may represent fundamentally different causal indicators. This report suggests, in lieu of more specific and disaggregated variables, that menthlth demonstrate general trends in mental health.
+
+## Identification Strategy and Assumptions
+
+States have widely varying demographic parameters. In order to generate common support and increase the strength of the analysis, this report used propensity score matching to determine a group of common support states. The healthcare coverage rate, employment rate, high school graduate rate, and college graduate rate in the year 2000 were used to predict whether or not a state would expand Medicaid by 2017. The predicted value was used to remove states that were very likely to expand coverage and those that were very unlikely to expand coverage. States above 93% and below 35% were removed from common support. The cut-off probabilities were determined via an examination of the distribution: clear outliers were present below and above the expected values. Arizona, Connecticut, Washington DC, Kentucky, Massachusetts, Mississippi, Tennessee, and Washington were dropped from the common support. Mississippi and Tennessee were the only two states that did not expand Medicaid to be dropped from the model.
+
+```{r Figure 3: Distribution of Medicaid Expansion Probabilities by State}
+
+```
+
+## Results
+
+This report compared four regression models on common support and non-support support data. An ordinary least squares model was used to determine baseline results, but given the nature of the dependent variable (results reported on 0-30 days of negative mental health), count-model regressions may be more appropriate. Poisson, negative binomial, and zero-inflated negative binomial were used for potentially increased accuracy. Sex, education, income bracket, state, and year were held constant constant. Standard errors are clustered at the state level. The results of the regressions are listed in the table below.
+
+```{r Figure 4: Coefficients, Standard Errors, and P-Values for}
+
+```
+
+The analysis reveals a relationship between the acquisition of health insurance and days of negative mental health symptoms. All four regression types, and both common support and non-common support groups reveal a positive correlation between having health coverage and and a percentage of less days with negative mental health. The OLS regression demonstrates the strongest relationship, with .8874 less days of negative mental health, followed by negative binomial, Poisson, and zero-inflated negative binomial at .0456. (note that these are log results). For comparison, large coefficients were produced based on income bracket, year, and state residency. Additionally, the common support group demonstrates an increased positive effect on reducing the number of days.
+
+Of the four regressions types utilized, the OLS regression and the zero-inflated negative binomial regression may offer the weakest results. OLS regressions are more effective at demonstrating a linear relationship, which may not be appropriate given the composition of the key variable and large number of zeros (see F​ igure 4​). The log of log-normal distribution may make for a more accurate regression, but log(0) is undefined and therefore unusable. The zero-inflated negative binomial model may also not be the most effective. This model assumes that the number of observed zeros is artificially inflated, and controls for this inflation. In the BRFSS data, observed zeroes are self-reported, and therefore unlikely to be exaggerated.
+
+```{r Figure 4: Distribution of Reported Negative Mental Health Days}
+
+```
+
+## Conclusion
+
+This analysis sought to quantify the effect of Medicaid expansion on individuals in the United States. Medicaid expansion improved mental health of individuals by between .2097 and .2390 days per month according the most potentially appropriate regression models used. A fifth of a day may seem like a small return, but when distributed over the entire population of the United States8 and multiplied by the number of 30 day periods in a year, this represents nearly 4 billion days free from negative mental health.
+
+
