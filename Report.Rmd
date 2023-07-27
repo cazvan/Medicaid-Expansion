@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-![](https://raw.githubusercontent.com/cazvan/Medicaid-Expansion/main/90.webp){#id .class width=70% height=70%}^[Kaiser Family Foundation. State Medicaid Expansion Map. April 10, 2017. http://www.governing.com/gov-data/health/state-medicaid-expansion-adoption-status-map.html]
+![MAP](https://raw.githubusercontent.com/cazvan/Medicaid-Expansion/main/90.webp){#id .class width=70% height=70%}^[Kaiser Family Foundation. State Medicaid Expansion Map. April 10, 2017. http://www.governing.com/gov-data/health/state-medicaid-expansion-adoption-status-map.html]
 
 ```{r Figure 1: State Medicaid Expansion Map. April 10, 2017.}
 
